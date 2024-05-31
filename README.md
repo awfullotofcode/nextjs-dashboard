@@ -13,3 +13,5 @@ Using custom fonts in project can affect performance if the font files need to b
 ###### Example from next.js course
 In this course in order to add Inter and Lusitana font we created a new file called `font.ts`, from there we imported both fonts from next/font/google then exported them. In page.tsx and layout.tsx we imported both fonts from `@/app/ui/fonts`.
 
+### Creating layouts and pages
+To create a nested route, you can nest folders inside each other and add page.tsx files inside them.
