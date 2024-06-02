@@ -23,5 +23,13 @@ Nextjs automatically code splits your app via route segments. This means pages g
 ### Fetching data
 If you're fetching data from the client, you should use an additional API layer to avoid exposing database secrets to the client. Nextjs uses React Server Components by default, allowing you to skip the API layer and query your database directly without exposing secrets. In addition, server components execute directly on the server. Allowing the server to handle the heavy and expensive data fetches and logic on the server and pushing only the result to the client.
 
+***Promises in this context refer to the result of fetched data. In sql context and in specific libraries when executing a SQL query they typically return a Promise. This could be the data returned by the SQL query or an error if something went wrong***
+
 ###### async and await
 `async` lets javascript move on progressing the code even though the function isn't finished being executed. `await` tells an `async` function to pause until it recieves a 'promise'(data) back.
+#### Request waterfalls
+A waterfall refers to the sequence of network requests that depend on the completion of the previous request before the present one can execute. When necessary waterfalls are a good option otherwise if unintentional it can impact performance.
+##### Ways to avoid waterfalls
+###### Parallel data fetching
+Initiating all data requests at the same time - in parallel. In JavaScript you can use `Promise.all` or `Promise.allSettled` functions to initiate all promises at the same time
+
