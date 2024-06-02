@@ -15,3 +15,5 @@ In this course in order to add Inter and Lusitana font we created a new file cal
 
 ### Creating layouts and pages
 To create a nested route, you can nest folders inside each other and add page.tsx files inside them.
+### Automatic code-splitting and prefetching
+Nextjs automatically code splits your app via route segments. This means pages get isolated. If a certain page throws an ero
