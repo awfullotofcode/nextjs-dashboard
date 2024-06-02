@@ -22,3 +22,6 @@ Nextjs automatically code splits your app via route segments. This means pages g
 
 ### Fetching data
 If you're fetching data from the client, you should use an additional API layer to avoid exposing database secrets to the client. Nextjs uses React Server Components by default, allowing you to skip the API layer and query your database directly without exposing secrets. In addition, server components execute directly on the server. Allowing the server to handle the heavy and expensive data fetches and logic on the server and pushing only the result to the client.
+
+###### async and await
+`async` lets javascript move on progressing the code even though the function isn't finished being executed. `await` tells an `async` function to pause until it recieves a 'promise'(data) back.
