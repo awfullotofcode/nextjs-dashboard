@@ -13,7 +13,12 @@ Using custom fonts in project can affect performance if the font files need to b
 ###### Example from next.js course
 In this course in order to add Inter and Lusitana font we created a new file called `font.ts`, from there we imported both fonts from next/font/google then exported them. In page.tsx and layout.tsx we imported both fonts from `@/app/ui/fonts`.
 
-### Creating layouts and pages
+### Page navigation  Optimization
+#### Creating layouts and pages
 To create a nested route, you can nest folders inside each other and add page.tsx files inside them.
-### Automatic code-splitting and prefetching
-Nextjs automatically code splits your app via route segments. This means pages get isolated. If a certain page throws an ero
+
+#### Page navigation optimization
+Nextjs automatically code splits your app via route segments. This means pages get isolated. If a certain page throws an error other elements will still work. By using `<Link>` it optimized web navigation and wont fully refresh browser on every 'click'.
+
+### Fetching data
+If you're fetching data from the client, you should use an additional API layer to avoid exposing database secrets to the client. Nextjs uses React Server Components by default, allowing you to skip the API layer and query your database directly without exposing secrets. In addition, server components execute directly on the server. Allowing the server to handle the heavy and expensive data fetches and logic on the server and pushing only the result to the client.
