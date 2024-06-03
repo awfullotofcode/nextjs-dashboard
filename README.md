@@ -32,4 +32,26 @@ A waterfall refers to the sequence of network requests that depend on the comple
 ##### Ways to avoid waterfalls
 ###### Parallel data fetching
 Initiating all data requests at the same time - in parallel. In JavaScript you can use `Promise.all` or `Promise.allSettled` functions to initiate all promises at the same time
+### Static and Dynamic Rendering
+#### Static Rendering
+Data fetching and rendering happens on the server at build time or during revalidation. The result can then be distributed or cached to a Content Delivery Network. Static rendering is useful for UI with no data or data that is shared across users. I.E. if there is a page with personalized data that is frequently updated static rendering would not be a good fit.
+###### Benefits of static rendering
+**Faster Websites**
+Prerendered content can be cached and globally distributed. This helps uesrs around the world access website content quickly and reliably.
 
+**Reduced Server Load**
+Because content is cached, the server won't need to dynamically generate content for each user request.
+
+**Search Engine Optimization**
+Prerendered content allows search engine crawlers to index as the content is available when the page loads.
+#### Dynamic Rendering 
+Content is rendered on the server for each user at request time(when the user visits the page).
+###### Benefits of dynamic rendering
+**Real-time Data**
+Allows application to display real-time or frequently updated data.
+
+**User-specific Content**
+Easier to serve personalized content, i.e. dashboards or user profiles, and update the data based on user interaction.
+
+**Request Time Information**
+Allows acces to information that can only be known at request time, ie cookies or URL search parameters.
