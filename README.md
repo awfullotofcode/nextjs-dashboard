@@ -55,3 +55,7 @@ Easier to serve personalized content, i.e. dashboards or user profiles, and upda
 
 **Request Time Information**
 Allows acces to information that can only be known at request time, ie cookies or URL search parameters.
+### Streaming
+Streaming is a data transfer technique that breaks down a route into smaller "chunks" and streams them from the server to the client as they become ready. This helps prevent slow data requests from blocking your whole page and allowing the user to  see and interact with parts of the page without waiting for all the data to load before any UI can be shown. In context of React's component model, each component can be considered a "chunk". In n
+ext.js two wa
+ys to implement streaming are at page level with the `loading.tsx` file or `<Suspense>`
