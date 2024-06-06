@@ -2,6 +2,7 @@
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { useDebouncedCallback } from 'use-debounce';
 
 export default function Search({ placeholder }: { placeholder: string }) {
 
@@ -9,23 +10,18 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  function handleSearch(term: string) {
-    // create new URLSearchParams instance
+
+  const handleSearch = useDebouncedCallback((term) => {
+    console.log(`Searching... ${term}`);
+   
     const params = new URLSearchParams(searchParams);
-    // set params based on user input, if empty delete
     if (term) {
       params.set('query', term);
     } else {
       params.delete('query');
     }
-    /* update URL with user's search data
-       ${pathname} = current path (e.g. 'dashboard/invoices' 
-       ${params.toString()} = translates user input into URL friendly
-       format as user typesinto search bar 
-    */
     replace(`${pathname}?${params.toString()}`);
-    console.log(term);
-  }
+  }, 300);
 
   return (
     <div className="relative flex flex-1 flex-shrink-0">
