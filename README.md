@@ -59,3 +59,26 @@ Allows acces to information that can only be known at request time, ie cookies o
 Streaming is a data transfer technique that breaks down a route into smaller "chunks" and streams them from the server to the client as they become ready. This helps prevent slow data requests from blocking your whole page and allowing the user to  see and interact with parts of the page without waiting for all the data to load before any UI can be shown. In context of React's component model, each component can be considered a "chunk". In n
 ext.js two wa
 ys to implement streaming are at page level with the `loading.tsx` file or `<Suspense>`
+### Search
+**`useSearchParams`** -
+Allows access to parameters of current URL. For example, the search params for this URL `/dashboard/invoices?page=1&query=pending` would look like this: `{page: '1', query: 'pending'}`
+
+**`usePathname`** - reads the current URL pathname (ie, for `/dashboard/invoices` route it would return '/dashboard/invoices').
+
+**`useRouter`** - Enables navigation between routes within client components programatically.
+
+##### **When to use`useSearchParams()` vs `searchParams`**
+When in a client component `useSearchParams()` hook is used to access params from client
+
+When a server component fetches its own data you can pass `searchParams` as a prop from page to component
+### Debouncing
+A programming practice that limits the rate at which a function can server. (i.e. youo only want to query a database when the user has stopped typing)
+##### How it works
+###### Trigger Event
+When an event that should be debounced (ie keystroke in the search box) a timer starts
+###### Wait
+If a new event occurs before the timer expires, the timer is reset.
+###### Execution
+If the timer reaches the end of its countdown, the debounced function proceeds to execute
+### Pagination
+Allows a user to navigate through different pages to view all elements (ie table only dislays 6 invoices at a time)
