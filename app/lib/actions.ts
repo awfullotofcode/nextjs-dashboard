@@ -44,7 +44,7 @@ export async function createInvoice(formData: FormData) {
 
 export async function updateInvoice(id: string, formData: FormData) {
     const { customerId, amount, status } = UpdateInvoice.parse({
-        customerId: formData.get('customerid'),
+        customerId: formData.get('customerId'),
         amount: formData.get('amount'),
         status: formData.get('status'),
     });
