@@ -82,3 +82,8 @@ If a new event occurs before the timer expires, the timer is reset.
 If the timer reaches the end of its countdown, the debounced function proceeds to execute
 ### Pagination
 Allows a user to navigate through different pages to view all elements (ie table only dislays 6 invoices at a time)
+### Authentication
+Makes sure user is who they say they are. ie proving identity with a username/password
+### Authorization
+Decides what parts of the application they are allowed to use
+#####  Authentication checks who you are, and authorization determines what you can do or access in the application
